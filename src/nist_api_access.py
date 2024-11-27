@@ -62,10 +62,10 @@ class NISTAPI:
 if __name__ == "__main__":
     import time
     testobj = NISTAPI()
-    print((testobj.get_all())[2:])
+    print((testobj.get_all()))
     time.sleep(20)
-    print((testobj.get_new())[2:])
+    print((testobj.get_new()))
     time.sleep(20)
-    print((testobj.get_critical())[2:])
+    print((testobj.get_critical()))
     time.sleep(20)
-    print((testobj.get_by_keyword("linux windows macos"))[2:])
+    print((testobj.get_by_keyword("linux windows macos")))
