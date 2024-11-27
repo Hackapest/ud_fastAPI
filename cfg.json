@@ -1,5 +1,5 @@
 {
-    "api-key" : "",
+    "api-key" : "YOUR_API_KEY_HERE",
     "server-unreachable-message" : "NIST servers unreachable at the moment, try later",
-    "info-page" : ""
+    "info-page" : "INFO_AT_/info_TAB"
 }
