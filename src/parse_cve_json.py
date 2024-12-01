@@ -26,17 +26,14 @@ class CVEParser:
         )
         return {"result" : sorted_cves[:10]}
     
-    def get_critical(self):
-        critical_keywords = ['critical']
-        
-        critical_cves = []
+    def get_known(self):        
+        known_cves = []
         for cve in self.vulnerabilities:
-            desc = cve['shortDescription'].lower()
-            if any(keyword in desc for keyword in critical_keywords):
-                critical_cves.append(cve)
+            if cve["knownRansomwareCampaignUse"] == "Known":
+                known_cves.append(cve)
                 
         return {"result" : sorted(
-            critical_cves,
+            known_cves,
             key=lambda x: datetime.strptime(x['dateAdded'], '%Y-%m-%d'),
             reverse=True
         )[:10]}
@@ -61,13 +58,11 @@ class CVEParser:
 
 
 if __name__ == "__main__":
+    #testing
     from utils import load_json
     sample_data = load_json("cves.json")
     
     parser = CVEParser(sample_data)
     recent_cves = parser.get_all()
     new_cves = parser.get_new()
-    critical_cves = parser.get_critical()
     search_results = parser.get_by_query("linux")
-
-    print(len(critical_cves["result"]))

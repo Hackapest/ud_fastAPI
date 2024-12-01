@@ -6,10 +6,8 @@ from typing import Optional
 from utils import load_json
 
 
-
 app = FastAPI()
 parser = CVEParser(load_json("cves.json"))
-
 
 @app.get("/info", response_class=HTMLResponse)
 def get_info():
@@ -25,9 +23,9 @@ def get_new_cve():
     res = parser.get_new()
     return res
 
-@app.get("/get/critical")
-def get_critical_cve():
-    res = parser.get_critical()
+@app.get("/get/known")
+def get_known_cve():
+    res = parser.get_known()
     return res
 
 @app.get("/get")
