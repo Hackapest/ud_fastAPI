@@ -5,7 +5,7 @@ class CVEParser:
         self.vulnerabilities = data.get('vulnerabilities', [])
         
     def get_all(self, end_date = datetime.now(),
-                start_date=(datetime.now() - timedelta(days=5))):
+                start_date=(datetime.now() - timedelta(days=20))):
         
         recent_cves = []
         for cve in self.vulnerabilities:

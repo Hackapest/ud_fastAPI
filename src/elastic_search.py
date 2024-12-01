@@ -57,7 +57,6 @@ class VulnerabilityDatabase:
             sort=[{"dateAdded": {"order": "desc"}}],
             size=10
         )
-        print(type(result))
         return {"result": [hit["_source"] for hit in result["hits"]["hits"]]}
 
     def get_known(self):

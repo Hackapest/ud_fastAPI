@@ -7,7 +7,7 @@ from utils import load_json
 
 
 app = FastAPI()
-db = VulnerabilityDatabase(clear_index=False)
+db = VulnerabilityDatabase(clear_index=True)
 
 
 @app.get("/info", response_class=HTMLResponse)
